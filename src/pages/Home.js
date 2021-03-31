@@ -10,6 +10,8 @@ const Home = () => {
 		fetchAllProducts();
 	}, [fetchAllProducts]);
 
+	if (!products) return <div>Loading...</div>;
+
 	return (
 		<div>
 			<Grid templateColumns={['repeat(1,1fr)', 'repeat(3,1fr)']}>
@@ -20,7 +22,7 @@ const Home = () => {
 							textAlign="center"
 							position="relative"
 						>
-							{/* <Image src={product.images[0].src} /> */}
+							<Image src={product.images[0].src} />
 							<Text position="absolute" bottom="15%" w="100%" fontWeight="bold">
 								{product.title}
 							</Text>

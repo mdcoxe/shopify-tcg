@@ -28,7 +28,7 @@ const ProductPage = () => {
 		<Box p="2rem">
 			<Grid templateColumns={['repeat(1,1fr)', 'repeat(2, 1fr)']} m="auto">
 				<Flex justifyContent="center" alignItems="center">
-					{/* <Image src={product.images[0].src} /> */}
+					<Image src={product.images[0].src} />
 				</Flex>
 				<Flex
 					flexDir="column"
@@ -46,8 +46,8 @@ const ProductPage = () => {
 					<Button
 						onClick={() => addItemToCheckout(product.variants[0].id, 1)}
 						w="10rem"
-						backgroundColor="#FF38BD"
-						color="white"
+						backgroundColor="#FFD900"
+						color="black"
 					>
 						Add To Cart
 					</Button>
