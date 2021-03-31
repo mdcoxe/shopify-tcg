@@ -5,6 +5,7 @@ import NavMenu from './components/NavMenu';
 import Home from './pages/Home';
 import ProductPage from './pages/ProductPage';
 import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
 
 function App() {
 	return (
@@ -15,6 +16,9 @@ function App() {
 				<NavMenu />
 
 				<Switch>
+					<Route path="/contactus">
+						<ContactUs />
+					</Route>
 					<Route path="/aboutus">
 						<AboutUs />
 					</Route>

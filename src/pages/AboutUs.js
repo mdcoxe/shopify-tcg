@@ -1,5 +1,13 @@
 import React from 'react';
-import { Box, Grid, Image, Text, Heading, Flex } from '@chakra-ui/react';
+import {
+	Box,
+	Grid,
+	Image,
+	Text,
+	Heading,
+	Flex,
+	Button,
+} from '@chakra-ui/react';
 
 const AboutUs = () => {
 	return (
@@ -55,6 +63,11 @@ const AboutUs = () => {
 						distant epochs from which we spring citizens of distant epochs two
 						ghostly white figures in coveralls and helmets are softly dancing.
 					</Text>
+					<a href="/contactus">
+						<Button w="10rem" backgroundColor="#FFD900" color="black">
+							Contact Us
+						</Button>
+					</a>
 				</Flex>
 			</Grid>
 		</Box>
