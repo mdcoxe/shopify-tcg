@@ -1,6 +1,6 @@
 # The Card Shop Ecommerce Shop
 
-Site is not live yet!!! [Click here!]()
+Site is still in progress but it is live!!! [Click here!](https://peaceful-ardinghelli-05e7ea.netlify.app/)
 
 ## Project Overview
 

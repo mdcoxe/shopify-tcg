@@ -17,16 +17,15 @@ import { ShopContext } from '../context/shopContext';
 const NavMenu = () => {
 	const { isMenuOpen, closeMenu } = useContext(ShopContext);
 	return (
-		<Drawer isOpen={isMenuOpen} onClose={closeMenu} placement="left" size="sm">
+		<Drawer isOpen={isMenuOpen} onClose={closeMenu} placement="left" size="xs">
 			<DrawerOverlay>
 				<DrawerContent>
 					<DrawerCloseButton />
 					<DrawerHeader>Menu</DrawerHeader>
 					<DrawerBody>
 						<VStack p="2rem">
-							<Link to="/">About Us</Link>
-							<Link to="/">Learn More</Link>
-							<Link to="/">Sustainability</Link>
+							<Link to="/">Home</Link>
+							<Link to="/aboutus">About Us</Link>
 						</VStack>
 					</DrawerBody>
 					<DrawerFooter textAlign="center">

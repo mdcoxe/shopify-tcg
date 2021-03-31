@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Flex, Icon, Image, Box, Badge } from '@chakra-ui/react';
 import { ShopContext } from '../context/shopContext';
-import { MdShoppingBasket } from 'react-icons/md';
-import { BiMenuAltLeft } from 'react-icons/bi';
+import { BiMenuAltLeft, BiCartAlt } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
@@ -29,7 +28,7 @@ const NavBar = () => {
 			<Box>
 				<Icon
 					fill="#FFD900"
-					as={MdShoppingBasket}
+					as={BiCartAlt}
 					w={30}
 					h={30}
 					cursor="pointer"
