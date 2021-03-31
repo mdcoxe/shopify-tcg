@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import NavMenu from './components/NavMenu';
 
 import Home from './pages/Home';
 import ProductPage from './pages/ProductPage';
@@ -6,11 +8,11 @@ import AboutUs from './pages/AboutUs';
 
 function App() {
 	return (
-		<div>
+		<div className="App">
 			<Router>
-				<p>Navbar</p>
+				<NavBar />
 				<p>Cart</p>
-				<p>navmenu</p>
+				<NavMenu />
 
 				<Switch>
 					<Route path="/aboutus">
