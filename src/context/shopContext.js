@@ -8,7 +8,7 @@ const client = Client.buildClient({
 	storefrontAccessToken: process.env.REACT_APP_SHOPIFY_API,
 });
 
-export class ShopProvider extends Component {
+class ShopProvider extends Component {
 	state = {
 		product: {},
 		products: [],
@@ -17,15 +17,51 @@ export class ShopProvider extends Component {
 		isMenuOpen: false,
 	};
 
-	componentDidMount() {}
+	componentDidMount() {
+		if (localStorage.checkout_id) {
+			this.fetchCheckout(localStorage.checkout_id);
+		} else {
+			this.createCheckout();
+		}
+	}
 
-	createCheckout = async () => {};
+	createCheckout = async () => {
+		const checkout = await client.checkout.create();
+		localStorage.setItem('checkout_id', checkout.id);
+		this.setState({ checkout: checkout });
+	};
 
-	fetchCheckout = async () => {};
+	fetchCheckout = async (checkoutId) => {
+		client.checkout
+			.fetch(checkoutId)
+			.then((checkout) => {
+				this.setState({ checkout: checkout });
+			})
+			.catch((error) => console.log(error));
+	};
 
-	addItemToCheckout = async () => {};
+	addItemToCheckout = async (variantId, quantity) => {
+		const lineItemsToAdd = [
+			{
+				variantId,
+				quantity: parseInt(quantity, 10),
+			},
+		];
+		const checkout = await client.checkout.addLineItems(
+			this.state.checkout.id,
+			lineItemsToAdd
+		);
+		this.setState({ checkout: checkout });
+		this.openCart();
+	};
 
-	removeItemFromCart = async () => {};
+	removeLineItem = async (lineItemIdsToRemove) => {
+		const checkout = await client.checkout.removeLineItems(
+			this.state.checkout.id,
+			lineItemIdsToRemove
+		);
+		this.setState({ checkout: checkout });
+	};
 
 	fetchAllProducts = async () => {
 		const products = await client.product.fetchAll();
@@ -61,7 +97,7 @@ export class ShopProvider extends Component {
 					fetchAllProducts: this.fetchAllProducts,
 					fetchProductWithHandle: this.fetchProductWithHandle,
 					addItemToCheckout: this.addItemToCheckout,
-					removeItemFromCart: this.removeItemFromCart,
+					removeLineItem: this.removeLineItem,
 					closeCart: this.closeCart,
 					openCart: this.openCart,
 					closeMenu: this.closeMenu,

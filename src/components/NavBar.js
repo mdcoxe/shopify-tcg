@@ -35,7 +35,7 @@ const NavBar = () => {
 					onClick={() => openCart()}
 				/>
 				<Badge backgroundColor="FFFC72" borderRadius="50%">
-					{checkout.lineItems?.length}
+					{checkout?.lineItems?.length}
 				</Badge>
 			</Box>
 		</Flex>

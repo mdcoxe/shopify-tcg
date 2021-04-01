@@ -29,7 +29,16 @@ const NavMenu = () => {
 						</VStack>
 					</DrawerBody>
 					<DrawerFooter textAlign="center">
-						<Text w="100%"> © Copyright </Text>
+						<VStack margin="auto">
+							<Text w="100%" fontSize="small">
+								{' '}
+								&copy; Copyright 2021{' '}
+							</Text>
+							<Text w="100%" fontSize="small">
+								{' '}
+								Built by Michael Coxe{' '}
+							</Text>
+						</VStack>
 					</DrawerFooter>
 				</DrawerContent>
 			</DrawerOverlay>
